@@ -9,9 +9,11 @@ find_package(catkin REQUIRED COMPONENTS
   prioritized_qp_osqp
   )
 
-find_package(catkin REQUIRED)
-
 find_package(pinocchio REQUIRED)
+
+catkin_package(
+  INCLUDE_DIRS include
+)
 
 include_directories(
   include
