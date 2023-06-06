@@ -17,10 +17,11 @@ namespace aik_constraint {
   // この結果のjacobianをcalcRotation?6:3 * jointControllable 行列でsetFromTripletsすればよい．
   void calc6DofJacobian(const std::vector<pinocchio::JointIndex>& use_joints, // input
                         const pinocchio::Data& data, // input
-			const pinocchio::JointIndex& link_id, //input
+			const pinocchio::JointIndex& target_link_id, //input
+			const pinocchio::SE3& target_localpos, // input
                         const bool& calcRotation, // input. falseならtranslationのみ
                         std::vector<Eigen::Triplet<double> >& o_Jacobian, //output
-                        );
+			);
 
   // world座標系で見た、A - B のヤコビアン. robotがnullptrの場合、world座標を意味する.
   //   jacobianを新たにコンストラクトし、非ゼロ要素に1を入れる.
